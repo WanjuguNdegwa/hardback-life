@@ -1,28 +1,32 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
-  # Add routes
-  get '/messages' do
-    Message.order(created_at: :asc).to_json
+  get '/books' do
+    Book.order(created_at: :asc).to_json
+  end
+
+  get '/books/:id' do
+    book = Book.find(params[:id])
+    book.to_json
   end
   
-  post '/messages' do
-    message = Message.create(
-      body: params[:body],
-      username: params[:username]
+  post '/books' do
+    book = Book.create(
+      author: params[:author],
+      title: params[:title]
     )
-    message.to_json
+    book.to_json
   end
 
-  patch '/messages/:id' do
-    message = Message.find(params[:id])
-    message.update(params)
-    message.to_json
+  patch '/book/:id' do
+    book = Book.find(params[:id])
+    book.update(params)
+    book.to_json
   end
 
-  delete '/messages/:id' do
-    message = Message.find(params[:id])
-    message.destroy
-    message.to_json
+  delete '/books/:id' do
+    book = Book.find(params[:id])
+    book.destroy
+    book.to_json
   end
 end
