@@ -12,9 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2022_06_26_204122) do
 
-  create_table "messages", force: :cascade do |t|
-    t.string "body"
-    t.string "username"
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.string "genre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
