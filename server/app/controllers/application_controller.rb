@@ -36,17 +36,17 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/books' do
-    Book.order(created_at: :asc).to_json
+    Book.order(created_at: :asc).to_json(:methods => :average_rating)
   end
 
   get '/books/:id' do
     book = Book.find(params[:id])
-    book.to_json
+    book.to_json(:methods => :average_rating, :include => {:reviews => {:include => {:user => { :only => :email }}}})
   end
   
   post '/books' do
     authenticate!
-    
+
     book = Book.create(
       author: params[:author],
       title: params[:title],
