@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include BCrypt
+  validates :email, uniqueness: true
   # attr_accessor :email, :password_hash, :token
   has_many :reviews
   has_many :books, through: :reviews
