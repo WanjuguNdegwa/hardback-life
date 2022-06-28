@@ -72,4 +72,36 @@ class ApplicationController < Sinatra::Base
     book.destroy
     book.to_json
   end
+
+  get '/books/:id/reviews' do
+    book = Book.find_by(id: params[:id])
+
+    if book.nil?
+      halt 404
+    end
+
+    reviews = Review.includes(:user).where(book: book)
+    reviews.to_json(:include => {:user => { :only => :email }})
+  end
+
+  post '/books/:id/reviews' do
+    authenticate!
+    
+    token = request.env["HTTP_AUTHORIZATION"]
+    user = User.find_by_token(token)
+    
+    book = Book.find_by(id: params[:id])
+
+    if book.nil?
+      halt 404
+    end
+
+    review = Review.create(
+      rating: params[:rating],
+      comment: params[:comment],
+      book: book,
+      user: user
+    )
+    review.to_json
+  end
 end
