@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
 
   post '/login' do
-    user = User.find(email: params[:email])
+    user = User.find_by(email: params[:email])
     if user.password == params[:password]
       user.generate_token!
       {token: user.token}.to_json 
