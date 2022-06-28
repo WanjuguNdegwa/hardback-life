@@ -14,9 +14,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/signup' do
-    user = User.new
-    user.email = params[:email]
-    user.password = params[:password]
+    user = User.new(email: params[:email], password: params[:password])
     user.generate_token!
     user.save
 
