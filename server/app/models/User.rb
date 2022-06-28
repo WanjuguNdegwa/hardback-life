@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include BCrypt
   # attr_accessor :email, :password_hash, :token
+  has_many :reviews
+  has_many :books, through: :reviews
 
   def password
     @password ||= Password.new(password_hash)
