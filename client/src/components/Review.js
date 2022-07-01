@@ -16,9 +16,7 @@ function Review({review}) {
           activeColor="#ffd700"
         />
       </div>
-      {/* <blockquote class="blockquote"> */}
-        <p className='comment'>{review.comment}</p>
-      {/* </blockquote> */}
+      <p className='comment'>{review.comment}</p>
     </div>
   )
 }
