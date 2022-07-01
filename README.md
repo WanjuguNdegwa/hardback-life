@@ -18,5 +18,5 @@ This web application will enable a user to manage their book collection by keepi
 - PostgreSQL for database 
 - ActiveRecord for Object Relational Mapping
 
-Link to [client](https://hardback-life-api.herokuapp.com/books) & [api](https://hardback-life-api.herokuapp.com/books)
+Link to [client](https://hardback-life-ndegwa.web.app/) & [api](https://hardback-life-api.herokuapp.com/books)
 
