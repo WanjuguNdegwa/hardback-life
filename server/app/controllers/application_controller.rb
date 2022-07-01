@@ -36,7 +36,7 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/books' do
-    Book.order(created_at: :asc).to_json(:methods => :average_rating)
+    Book.order(created_at: :desc).to_json(:methods => :average_rating)
   end
 
   get '/books/:id' do

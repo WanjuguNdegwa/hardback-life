@@ -9,6 +9,7 @@ end
   book = Book.create(
     title: Faker::Book.title,
     genre: Faker::Book.genre,
+    image_url: Faker::LoremFlickr.image(size: "307x473", search_terms: ['books']),
     author: Faker::Book.author,
     description: Faker::Lorem.paragraph(random_sentences_to_add: 4)
   )
