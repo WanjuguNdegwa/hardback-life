@@ -16,6 +16,9 @@ const Header = () => {
           <Icon icon="bx:book" color="#f8f8f8" height={72}/>
         </div>
       </Link>
+      <Link to="/add-book">
+        Add a book
+      </Link>
     </header>
   );
 };

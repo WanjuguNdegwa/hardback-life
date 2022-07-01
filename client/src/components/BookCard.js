@@ -9,7 +9,7 @@ function BookCard({ book }) {
       <Link to={`/books/${book.id}`}>
         <div 
             className='book-cover' 
-            style={{ backgroundImage: `url("/book-cover.jpeg")` }}
+            style={{ backgroundImage: `url("${book.image_url}")` }}
           >
           </div>
       </Link>

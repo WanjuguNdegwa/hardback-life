@@ -28,7 +28,7 @@ function BookDetail() {
         <div>
           <div 
             className="book-cover-holder" 
-            style={{ backgroundImage: `url("/book-cover.jpeg")` }}
+            style={{ backgroundImage: `url("${book.image_url}")` }}
           ></div>
         </div>
         <div>
