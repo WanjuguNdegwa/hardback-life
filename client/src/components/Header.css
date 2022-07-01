@@ -1,0 +1,12 @@
+header {
+  background-color: #125FD2;
+  color: #f8f8f8;
+  padding: 10px;
+}
+
+.brand-name p{
+  margin: 0;
+  line-height: 0.9;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
