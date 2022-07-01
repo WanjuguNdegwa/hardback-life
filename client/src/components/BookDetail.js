@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import {default as Rating} from "react-rating-stars-component";
 
 import Review from './Review';
 import "./BookDetail.css";
 
-function BookDetail({bookId}) {
+function BookDetail() {
   const apiUrl = "http://localhost:9292";
   const [book, setBook] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const bookId = useParams().bookId;
 
   useEffect(() => {
     setIsLoading(true);
@@ -49,9 +51,9 @@ function BookDetail({bookId}) {
 
           <div className="review-form mt-5">
             <form>
-              <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a review here" id="floatingTextarea"></textarea>
-                <label for="floatingTextarea">Leave a review here</label>
+              <div className="form-floating">
+                <textarea className="form-control" placeholder="Leave a review here" id="floatingTextarea"></textarea>
+                <label htmlFor="floatingTextarea">Leave a review here</label>
               </div>
               <button type="submit" className='btn btn-primary my-3'>Submit review</button>
             </form>

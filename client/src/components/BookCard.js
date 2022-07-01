@@ -1,15 +1,18 @@
 import React from 'react';
 import {default as Rating} from "react-rating-stars-component";
+import { Link } from 'react-router-dom';
 import "./BookCard.css";
 
 function BookCard({ book }) {
   return (
     <div className='book-card'>
-      <div 
-        className='book-cover' 
-        style={{ backgroundImage: `url("/book-cover.jpeg")` }}
-      >
-      </div>
+      <Link to={`/books/${book.id}`}>
+        <div 
+            className='book-cover' 
+            style={{ backgroundImage: `url("/book-cover.jpeg")` }}
+          >
+          </div>
+      </Link>
       <div className="details p-2">
         <div className="rating">
           <Rating
@@ -20,7 +23,9 @@ function BookCard({ book }) {
             activeColor="#ffd700"
           />
         </div>
-        <h1 className='book-title'>{book.title}</h1>
+        <Link to={`/books/${book.id}`}>
+          <h1 className='book-title'>{book.title}</h1>
+        </Link>
         <p className='book-author'>{book.author}</p>
         <p className='book-description'>
           {book.description}
