@@ -7,8 +7,7 @@ function BooksList({ books, isLoading }) {
       {isLoading ? (<div id="loading"></div>) :
       (<div className="books">
         {books && books.length > 0 ? 
-          books.filter((book) => book.content !== null)
-            .map((book, index) => (
+          books.map((book, index) => (
               <BookCard
                 key={index}
                 book={book}
